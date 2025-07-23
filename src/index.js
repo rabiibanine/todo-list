@@ -15,12 +15,10 @@ const projectManager = new ProjectManager();
 
 const taskManager = new TaskManager();
 
-const todoApp = new TodoApp(main, projectManager, taskManager);
-
-todoApp.update();
-
 const task1 = new Task("cool task", "cool task description", "tomorrow", 3);
 
 taskManager.addTask(task1);
 
-todoApp.update();
+const todoApp = new TodoApp(main, projectManager, taskManager);
+
+

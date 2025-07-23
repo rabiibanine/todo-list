@@ -12,10 +12,18 @@ export class Task {
 
     constructElement() {
 
-        const task = document.createElement('div');
-        task.classList.add('main__content-task');
-        task.textContent = task.title;
-        return task;
+        const taskElement = document.createElement('li');
+        taskElement.classList.add('main__content-task');
+        taskElement.dataset.id = this.id;
+        const taskTitleElement = document.createElement('h2');
+        taskTitleElement.classList.add('main__content-task-title');
+        taskTitleElement.textContent = this.title;
+        const taskRemoveButton = document.createElement('button');
+        taskRemoveButton.classList.add('main__content-task-remove');
+        taskRemoveButton.textContent = 'Remove';
+        taskElement.appendChild(taskTitleElement);
+        taskElement.appendChild(taskRemoveButton);
+        return taskElement;
 
     }
 

@@ -3,7 +3,7 @@ export class TaskManager {
     constructor() {
 
         this.tasks = new Array();
-
+        
     }
 
     constructElement() {
@@ -16,12 +16,7 @@ export class TaskManager {
         taskManagerTasks.classList.add('main__content-task-list');
         taskManagerTitle.textContent = 'Tasks';
         this.tasks.forEach(task => {
-            const taskElement = document.createElement('li');
-            taskElement.classList.add('main__content-task');
-            const taskTitleElement = document.createElement('h2');
-            taskElement.classList.add('main__content-task-title');
-            taskTitleElement.textContent = task.title;
-            taskElement.appendChild(taskTitleElement)
+            const taskElement = task.constructElement();
             taskManagerTasks.appendChild(taskElement);
         })
         taskManager.appendChild(taskManagerTitle);
@@ -33,6 +28,13 @@ export class TaskManager {
     addTask(task) {
 
         this.tasks.push(task);
+
+    }
+
+    removeTask(taskToRemove) {
+
+        const i = this.tasks.findIndex(task => task.id === taskToRemove.dataset.id);
+        this.tasks.splice(i , 1);
 
     }
 
