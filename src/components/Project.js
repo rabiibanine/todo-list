@@ -7,4 +7,13 @@ export class Project {
 
     }
 
+    constructElement() {
+
+        const project = document.createElement('div');
+        project.classList.add('main__sidebar-project');
+        project.textContent = project.title;
+        return project;
+
+    }
+
 }

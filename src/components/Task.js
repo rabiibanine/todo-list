@@ -9,4 +9,13 @@ export class Task {
 
     }
 
+    constructElement() {
+
+        const task = document.createElement('div');
+        task.classList.add('main__content-task');
+        task.textContent = task.title;
+        return task;
+
+    }
+
 }
