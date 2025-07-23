@@ -1,5 +1,7 @@
 import { TodoApp } from "./components/TodoApp";
+import { Task } from "./components/Task"
+import { TaskView } from "./components/TaskView";
 
-const main = document.querySelector(".main");
-
-const todoApp = new TodoApp(main);
+import "./styles/main.css";
+import "./styles/sidebar.css";
+import "./styles/normalize.css";
