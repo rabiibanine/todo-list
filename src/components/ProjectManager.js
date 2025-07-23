@@ -7,6 +7,7 @@ export class ProjectManager {
         this.projects = [
             new Project("Default", "Default Project")
         ];
+        this.currentProject = this.projects[0];
 
     }
 
@@ -37,6 +38,12 @@ export class ProjectManager {
     addProject(project) {
 
         this.projects.push(project);
+
+    }
+
+    setProject(project) {
+
+        this.currentProject = project;
 
     }
 

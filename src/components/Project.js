@@ -4,6 +4,7 @@ export class Project {
 
         this.title = title;
         this.description = description;
+        this.id = crypto.randomUUID();
 
     }
 

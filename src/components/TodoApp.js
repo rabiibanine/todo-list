@@ -20,6 +20,13 @@ export class TodoApp {
         this.content.appendChild(this.taskManager.constructElement());
         this.root.appendChild(this.sidebar);
         this.root.appendChild(this.content);
+        this.cacheDOM();
+
+    }
+
+    cacheDOM() {
+
+        console.log(this.projectManager);
 
     }
     
