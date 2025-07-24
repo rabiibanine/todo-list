@@ -4,9 +4,7 @@ export class ProjectManager {
 
     constructor() {
 
-        this.projects = [
-            new Project("Default", "Default Project")
-        ];
+        this.projects = [new Project('project1', 'project1 description')];
         this.currentProject = this.projects[0];
 
     }
@@ -30,15 +28,16 @@ export class ProjectManager {
 
     }
 
-    addProject(project) {
+    addProject(projectToAdd) {
 
-        this.projects.push(project);
+        this.projects.push(projectToAdd);
 
     }
+    
+    removeProject(projectId) {
 
-    setProject(project) {
-
-        this.currentProject = project;
+        const i = this.projects.findIndex(project => project.id === projectId);
+        this.projects.splice(i , 1);
 
     }
 

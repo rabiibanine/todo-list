@@ -14,7 +14,7 @@ export class TaskManager {
         taskManager.classList.add('main__content-task-manager');
         taskManagerTitle.classList.add('main__content-task-manager-title');
         taskManagerTasks.classList.add('main__content-task-list');
-        taskManagerTitle.textContent = 'Tasks';
+        taskManagerTitle.textContent = 'Default';
         this.tasks.forEach(task => {
             const taskElement = task.constructElement();
             taskManagerTasks.appendChild(taskElement);
@@ -25,15 +25,15 @@ export class TaskManager {
 
     }
 
-    addTask(task) {
+    addTask(taskToAdd) {
 
-        this.tasks.push(task);
+        this.tasks.push(taskToAdd);
 
     }
 
-    removeTask(taskToRemove) {
+    removeTask(taskId) {
 
-        const i = this.tasks.findIndex(task => task.id === taskToRemove.dataset.id);
+        const i = this.tasks.findIndex(task => task.id === taskId);
         this.tasks.splice(i , 1);
 
     }

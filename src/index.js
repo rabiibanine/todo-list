@@ -1,8 +1,5 @@
 import { TodoApp } from "./components/TodoApp";
-import { Task } from "./components/Task"
-import { Project } from "./components/Project";
-import { ProjectManager } from "./components/ProjectManager";
-import { TaskManager } from "./components/TaskManager";
+import { Task } from "./components/Task";
 
 import "./styles/main.css";
 import "./styles/sidebar.css";
@@ -11,14 +8,12 @@ import "./styles/content.css";
 
 const main = document.querySelector('.main');
 
-const projectManager = new ProjectManager();
+const todoApp = new TodoApp(main);
 
-const taskManager = new TaskManager();
+const task1 = new Task('yo', 'this', 'a task', 3);
 
-const task1 = new Task("cool task", "cool task description", "tomorrow", 3);
+todoApp.projectManager.currentProject.taskManager.addTask(task1);
 
-taskManager.addTask(task1);
-
-const todoApp = new TodoApp(main, projectManager, taskManager);
+todoApp.update();
 
 
