@@ -9,11 +9,14 @@ export class Project {
     }
 
     constructElement() {
-
-        const project = document.createElement('div');
-        project.classList.add('main__sidebar-project');
-        project.textContent = project.title;
-        return project;
+        
+        const projectElement = document.createElement('li');
+        projectElement.classList.add('main__sidebar-project');
+        const projectTitleElement = document.createElement('h2');
+        projectTitleElement.classList.add('main__content-project-title');
+        projectTitleElement.textContent = this.title;
+        projectElement.appendChild(projectTitleElement);
+        return projectElement;
 
     }
 

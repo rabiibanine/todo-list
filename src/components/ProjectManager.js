@@ -21,12 +21,7 @@ export class ProjectManager {
         projectManagerProjects.classList.add('main__sidebar-project-list');
         projectManagerTitle.textContent = 'Projects';
         this.projects.forEach(project => {
-            const projectElement = document.createElement('li');
-            projectElement.classList.add('main__sidebar-project');
-            const projectTitleElement = document.createElement('h2');
-            projectTitleElement.classList.add('main__content-project-title');
-            projectTitleElement.textContent = project.title;
-            projectElement.appendChild(projectTitleElement);
+            const projectElement = project.constructElement();
             projectManagerProjects.appendChild(projectElement);
         })
         projectManager.appendChild(projectManagerTitle);
