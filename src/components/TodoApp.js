@@ -17,7 +17,7 @@ export class TodoApp {
         this.sidebar.innerHTML = "";
         this.content.innerHTML = "";
         this.sidebar.appendChild(this.projectManager.constructElement());
-        this.content.appendChild(this.projectManager.currentProject.taskManager.constructElement());
+        if (this.projectManager.currentProject) this.content.appendChild(this.projectManager.currentProject.taskManager.constructElement());
         this.root.appendChild(this.sidebar);
         this.root.appendChild(this.content);
         this.cacheDOM();
