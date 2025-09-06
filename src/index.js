@@ -5,6 +5,7 @@ import "./styles/main.css";
 import "./styles/sidebar.css";
 import "./styles/normalize.css";
 import "./styles/content.css";
+import "./styles/task-form.css";
 
 const main = document.querySelector('.main');
 

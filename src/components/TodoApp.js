@@ -1,4 +1,5 @@
 import { ProjectManager } from "./ProjectManager";
+import { TaskForm } from "./TaskForm";
 
 export class TodoApp {
     constructor(root) {
@@ -10,6 +11,7 @@ export class TodoApp {
         this.sidebar.classList.add("main__sidebar");
         this.content.classList.add("main__content");
         this.update();
+
     }
 
     update() {
@@ -29,6 +31,9 @@ export class TodoApp {
 
         this.projectRemoveButtons = [...document.querySelectorAll('.main__sidebar-project-remove')];
         this.taskRemoveButtons = [...document.querySelectorAll('.main__content-task-remove')];
+        this.taskAddButtons = [...document.querySelectorAll('.main__content-task-add')];
+        this.closeTaskForm = document.querySelector('.task-form__exit'); 
+        this.submitTaskForm = document.querySelector('.task-form__button-submit');
 
     }
 
@@ -49,6 +54,24 @@ export class TodoApp {
                 this.update();
             };
         })
+
+        this.taskAddButtons.forEach(taskAddButton => {
+            taskAddButton.onclick = () => {
+                if (!this.currentTaskForm) this.currentTaskForm = new TaskForm();
+                this.update();
+            }
+        })
+
+        if (this.closeTaskForm) this.closeTaskForm.onclick = () => {
+            this.currentTaskForm.closeForm();
+            this.currentTaskForm = null;
+            this.update()
+        }
+
+        if (this.submitTaskForm) this.submitTaskForm.onclick = () => {
+            console.log('hello');
+            return;
+        }
 
     }
 

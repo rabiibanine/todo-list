@@ -9,17 +9,21 @@ export class TaskManager {
     constructElement() {
 
         const taskManager = document.createElement('div');
-        const taskManagerTitle = document.createElement('h1');
-        const taskManagerTasks = document.createElement('ul');
         taskManager.classList.add('main__content-task-manager');
+        const taskManagerTitle = document.createElement('h1');
         taskManagerTitle.classList.add('main__content-task-manager-title');
-        taskManagerTasks.classList.add('main__content-task-list');
         taskManagerTitle.textContent = 'Default';
+        const taskAddButton = document.createElement('button');
+        taskAddButton.classList.add('main__content-task-add');
+        taskAddButton.textContent = 'Add Task';
+        const taskManagerTasks = document.createElement('ul');
+        taskManagerTasks.classList.add('main__content-task-list');
         this.tasks.forEach(task => {
             const taskElement = task.constructElement();
             taskManagerTasks.appendChild(taskElement);
         })
         taskManager.appendChild(taskManagerTitle);
+        taskManager.appendChild(taskAddButton);
         taskManager.appendChild(taskManagerTasks);
         return taskManager;
 
