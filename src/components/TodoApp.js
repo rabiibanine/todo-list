@@ -1,4 +1,5 @@
 import { ProjectManager } from "./ProjectManager";
+import { Task } from "./Task";
 import { TaskForm } from "./TaskForm";
 
 export class TodoApp {
@@ -69,8 +70,13 @@ export class TodoApp {
         }
 
         if (this.submitTaskForm) this.submitTaskForm.onclick = () => {
-            console.log('hello');
-            return;
+            const title = this.currentTaskForm.submitForm().title;
+            const description = this.currentTaskForm.submitForm().description;
+            const task = new Task(title, description, 0, 0);
+            this.projectManager.currentProject.taskManager.addTask(task);
+            this.currentTaskForm.closeForm();
+            this.currentTaskForm = null;
+            this.update();
         }
 
     }

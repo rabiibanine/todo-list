@@ -29,6 +29,8 @@ export class TaskForm {
         formSubmit.classList.add('task-form__button-submit');
         formSubmit.textContent = 'Submit';
         formElement.appendChild(formSubmit);
+        this.formInputElementTitle = formInputElementTitle;
+        this.formInputElementDescription = formInputElementDescription;
         return formElement;
 
     }
@@ -47,7 +49,10 @@ export class TaskForm {
 
     submitForm() {
 
-
+        return {
+            title: this.formInputElementTitle.value,
+            description: this.formInputElementDescription.value,
+        }
 
     }
 
