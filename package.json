@@ -1,7 +1,7 @@
 {
-  "name": "template",
-  "version": "1.0.0",
-  "description": "A project I can copy paste to start another project immediately",
+  "name": "ToDo",
+  "version": "0.0.1",
+  "description": "ToDo list project so that I can learn front-end web dev",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",

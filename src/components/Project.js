@@ -2,10 +2,10 @@ import { TaskManager } from "./TaskManager";
 
 export class Project {
 
-    constructor(title, description) {
+    constructor(projectData) {
 
-        this.title = title;
-        this.description = description;
+        this.title = projectData.title;
+        this.description = projectData.description;
         this.taskManager = new TaskManager();
         this.id = crypto.randomUUID();
 

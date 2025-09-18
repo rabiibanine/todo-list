@@ -1,11 +1,11 @@
 export class Task {
 
-    constructor(title, description, dueDate, priority) {
+    constructor(taskData) {
 
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
+        this.title = taskData.title;
+        this.description = taskData.description;
+        this.dueDate = taskData.dueDate;
+        this.priority = taskData.priority;
         this.id = crypto.randomUUID();
 
     }
@@ -18,10 +18,14 @@ export class Task {
         const taskTitleElement = document.createElement('h2');
         taskTitleElement.classList.add('main__content-task-title');
         taskTitleElement.textContent = this.title;
+        const taskDescriptionElement = document.createElement('p');
+        taskDescriptionElement.classList.add('main__content-task-title');
+        taskDescriptionElement.textContent = this.description;
         const taskRemoveButton = document.createElement('button');
         taskRemoveButton.classList.add('main__content-task-remove');
         taskRemoveButton.textContent = 'Remove';
         taskElement.appendChild(taskTitleElement);
+        taskElement.appendChild(taskDescriptionElement);
         taskElement.appendChild(taskRemoveButton);
         return taskElement;
 
