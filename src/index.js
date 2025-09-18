@@ -7,6 +7,7 @@ import "./styles/normalize.css";
 import "./styles/content.css";
 import "./styles/task-form.css";
 import "./styles/project-form.css";
+import "./styles/project.css"
 
 const main = document.querySelector('.main');
 

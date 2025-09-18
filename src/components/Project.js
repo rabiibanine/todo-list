@@ -6,7 +6,7 @@ export class Project {
 
         this.title = projectData.title;
         this.description = projectData.description;
-        this.taskManager = new TaskManager();
+        this.taskManager = new TaskManager(this.title);
         this.id = crypto.randomUUID();
 
     }
@@ -24,6 +24,7 @@ export class Project {
         projectRemoveButton.classList.add('main__sidebar-project-remove');
         projectRemoveButton.textContent = 'Remove';
         projectElement.appendChild(projectRemoveButton);
+        this.HTMLElement = projectElement;
         return projectElement;
 
     }

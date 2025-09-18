@@ -45,7 +45,13 @@ export class TodoApp {
 
     bindEvents() {
 
-        
+        this.projectManager.projects.forEach(project => {
+            project.HTMLElement.onclick = () => {
+                this.projectManager.currentProject = project;
+                this.update();
+            }
+        });
+
         this.projectAddButton.onclick = () => {
             if(!this.currentProjectForm) this.currentProjectForm = new ProjectForm();
             this.update();

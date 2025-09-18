@@ -1,7 +1,8 @@
 export class TaskManager {
 
-    constructor() {
+    constructor(parentProjectTitle) {
 
+        this.title = parentProjectTitle;
         this.tasks = new Array();
         
     }
@@ -12,7 +13,7 @@ export class TaskManager {
         taskManager.classList.add('main__content-task-manager');
         const taskManagerTitle = document.createElement('h1');
         taskManagerTitle.classList.add('main__content-task-manager-title');
-        taskManagerTitle.textContent = 'Default';
+        taskManagerTitle.textContent = this.title;
         const taskAddButton = document.createElement('button');
         taskAddButton.classList.add('main__content-task-add');
         taskAddButton.textContent = 'Add Task';
