@@ -13,6 +13,8 @@ export class TodoApp {
         this.content = document.createElement("div");
         this.sidebar.classList.add("main__sidebar");
         this.content.classList.add("main__content");
+        this.root.appendChild(this.sidebar);
+        this.root.appendChild(this.content);
         this.update();
 
     }
@@ -23,8 +25,6 @@ export class TodoApp {
         this.content.innerHTML = "";
         this.sidebar.appendChild(this.projectManager.constructElement());
         if (this.projectManager.currentProject) this.content.appendChild(this.projectManager.currentProject.taskManager.constructElement());
-        this.root.appendChild(this.sidebar);
-        this.root.appendChild(this.content);
         this.cacheDOM();
         this.bindEvents();
 
@@ -59,9 +59,10 @@ export class TodoApp {
 
         this.projectRemoveButtons.forEach(projectRemoveButton => {
             const projectId = projectRemoveButton.parentElement.dataset.id;
-            projectRemoveButton.onclick = () => {
+            projectRemoveButton.onclick = (event) => {
                 this.projectManager.removeProject(projectId);
                 this.update();
+                event.stopPropagation();
             };
         });
 

@@ -47,8 +47,7 @@ export class ProjectManager {
     removeProject(projectId) {
 
         const i = this.projects.findIndex(project => project.id === projectId);
-        const projectToRemove = this.projects.find(project => project.id === projectId); 
-        if (projectToRemove === this.currentProject) this.currentProject = null;
+        if (this.currentProject === this.projects[i]) this.currentProject = null;
         this.projects.splice(i , 1);
 
     }
