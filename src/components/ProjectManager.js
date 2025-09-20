@@ -1,4 +1,5 @@
 import { Project } from "./Project";
+import Add from "../public/add-white.svg";
 
 export class ProjectManager {
 
@@ -21,9 +22,9 @@ export class ProjectManager {
         const projectManagerTitle = document.createElement('h1');
         projectManagerTitle.classList.add('main__sidebar-project-manager-title');
         projectManagerTitle.textContent = 'Projects';
-        const projectAddButton = document.createElement('button');
-        projectAddButton.classList.add('main__sidebar-project-add');
-        projectAddButton.textContent = 'Add Project';
+        const projectAddIcon = document.createElement('img');
+        projectAddIcon.classList.add('main__sidebar-project-add');
+        projectAddIcon.src = Add;
         const projectManagerProjects = document.createElement('ul');
         projectManagerProjects.classList.add('main__sidebar-project-list');
 
@@ -32,7 +33,7 @@ export class ProjectManager {
             projectManagerProjects.appendChild(projectElement);
         })
         projectManager.appendChild(projectManagerTitle);
-        projectManager.appendChild(projectAddButton);
+        projectManager.appendChild(projectAddIcon);
         projectManager.appendChild(projectManagerProjects);
         return projectManager;
 

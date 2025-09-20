@@ -1,3 +1,5 @@
+import Add from "../public/add.svg";
+
 export class TaskManager {
 
     constructor(parentProjectTitle) {
@@ -14,9 +16,9 @@ export class TaskManager {
         const taskManagerTitle = document.createElement('h1');
         taskManagerTitle.classList.add('main__content-task-manager-title');
         taskManagerTitle.textContent = this.title;
-        const taskAddButton = document.createElement('button');
-        taskAddButton.classList.add('main__content-task-add');
-        taskAddButton.textContent = 'Add Task';
+        const taskAddIcon = document.createElement('img');
+        taskAddIcon.classList.add('main__content-task-add');
+        taskAddIcon.src = Add;
         const taskManagerTasks = document.createElement('ul');
         taskManagerTasks.classList.add('main__content-task-list');
         this.tasks.forEach(task => {
@@ -24,7 +26,7 @@ export class TaskManager {
             taskManagerTasks.appendChild(taskElement);
         })
         taskManager.appendChild(taskManagerTitle);
-        taskManager.appendChild(taskAddButton);
+        taskManager.appendChild(taskAddIcon);
         taskManager.appendChild(taskManagerTasks);
         return taskManager;
 

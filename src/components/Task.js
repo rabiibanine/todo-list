@@ -1,3 +1,5 @@
+import Remove from "../public/remove.svg";
+
 export class Task {
 
     constructor(taskData) {
@@ -21,12 +23,13 @@ export class Task {
         const taskDescriptionElement = document.createElement('p');
         taskDescriptionElement.classList.add('main__content-task-title');
         taskDescriptionElement.textContent = this.description;
-        const taskRemoveButton = document.createElement('button');
-        taskRemoveButton.classList.add('main__content-task-remove');
-        taskRemoveButton.textContent = 'Remove';
+        const taskRemoveIcon = document.createElement('img');
+        taskRemoveIcon.classList.add('main__content-task-remove');
+        taskRemoveIcon.src = Remove;
+        taskRemoveIcon.textContent = 'Remove';
         taskElement.appendChild(taskTitleElement);
         taskElement.appendChild(taskDescriptionElement);
-        taskElement.appendChild(taskRemoveButton);
+        taskElement.appendChild(taskRemoveIcon);
         return taskElement;
 
     }
