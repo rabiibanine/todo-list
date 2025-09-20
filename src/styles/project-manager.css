@@ -1,0 +1,6 @@
+.main__sidebar-project-manager {
+
+    display: flex;
+    flex-flow: column wrap;
+
+}

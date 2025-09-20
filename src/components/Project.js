@@ -14,7 +14,7 @@ export class Project {
 
     constructElement() {
         
-        const projectElement = document.createElement('li');
+        const projectElement = document.createElement('div');
         projectElement.classList.add('main__sidebar-project');
         projectElement.dataset.id = this.id;
         const projectTitleElement = document.createElement('h2');

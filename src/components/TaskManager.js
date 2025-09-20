@@ -13,20 +13,26 @@ export class TaskManager {
 
         const taskManager = document.createElement('div');
         taskManager.classList.add('main__content-task-manager');
+
+        const taskManagerHeader = document.createElement('div');
+        taskManagerHeader.classList.add('main__content-task-manager-header');
         const taskManagerTitle = document.createElement('h1');
         taskManagerTitle.classList.add('main__content-task-manager-title');
         taskManagerTitle.textContent = this.title;
         const taskAddIcon = document.createElement('img');
         taskAddIcon.classList.add('main__content-task-add');
         taskAddIcon.src = Add;
-        const taskManagerTasks = document.createElement('ul');
+        taskManagerHeader.appendChild(taskManagerTitle);
+        taskManagerHeader.appendChild(taskAddIcon);
+
+        const taskManagerTasks = document.createElement('div');
         taskManagerTasks.classList.add('main__content-task-list');
         this.tasks.forEach(task => {
             const taskElement = task.constructElement();
             taskManagerTasks.appendChild(taskElement);
         })
-        taskManager.appendChild(taskManagerTitle);
-        taskManager.appendChild(taskAddIcon);
+
+        taskManager.appendChild(taskManagerHeader);
         taskManager.appendChild(taskManagerTasks);
         return taskManager;
 

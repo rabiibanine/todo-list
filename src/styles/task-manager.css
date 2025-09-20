@@ -1,0 +1,6 @@
+.main__content-task-manager {
+
+    display: flex;
+    flex-flow: column wrap;
+
+}

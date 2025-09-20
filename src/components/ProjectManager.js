@@ -19,21 +19,26 @@ export class ProjectManager {
 
         const projectManager = document.createElement('div');
         projectManager.classList.add('main__sidebar-project-manager');
+
+        const projectManagerHeader = document.createElement('div');
+        projectManagerHeader.classList.add('main__sidebar-project-manager-header');
         const projectManagerTitle = document.createElement('h1');
         projectManagerTitle.classList.add('main__sidebar-project-manager-title');
         projectManagerTitle.textContent = 'Projects';
         const projectAddIcon = document.createElement('img');
         projectAddIcon.classList.add('main__sidebar-project-add');
         projectAddIcon.src = Add;
-        const projectManagerProjects = document.createElement('ul');
-        projectManagerProjects.classList.add('main__sidebar-project-list');
+        projectManagerHeader.appendChild(projectManagerTitle);
+        projectManagerHeader.appendChild(projectAddIcon);
 
+        const projectManagerProjects = document.createElement('div');
+        projectManagerProjects.classList.add('main__sidebar-project-list');
         this.projects.forEach(project => {
             const projectElement = project.constructElement();
             projectManagerProjects.appendChild(projectElement);
         })
-        projectManager.appendChild(projectManagerTitle);
-        projectManager.appendChild(projectAddIcon);
+
+        projectManager.appendChild(projectManagerHeader);
         projectManager.appendChild(projectManagerProjects);
         return projectManager;
 

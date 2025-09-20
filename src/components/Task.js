@@ -14,7 +14,7 @@ export class Task {
 
     constructElement() {
 
-        const taskElement = document.createElement('li');
+        const taskElement = document.createElement('div');
         taskElement.classList.add('main__content-task');
         taskElement.dataset.id = this.id;
         const taskTitleElement = document.createElement('h2');
