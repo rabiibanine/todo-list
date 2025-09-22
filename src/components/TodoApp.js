@@ -1,4 +1,5 @@
 import { Project } from "./Project";
+import { ProjectEditForm } from "./ProjectEditForm";
 import { ProjectForm } from "./ProjectForm";
 import { ProjectManager } from "./ProjectManager";
 import { Task } from "./Task";
@@ -33,6 +34,7 @@ export class TodoApp {
     cacheDOM() {
 
         this.projectAddButton = document.querySelector('.main__sidebar-project-add');
+        this.projectEditButtons = [...document.querySelectorAll('.main__sidebar-project-edit')];
         this.projectRemoveButtons = [...document.querySelectorAll('.main__sidebar-project-remove')];
         this.taskAddButton = document.querySelector('.main__content-task-add');
         this.taskRemoveButtons = [...document.querySelectorAll('.main__content-task-remove')];
@@ -56,6 +58,13 @@ export class TodoApp {
             if(!this.currentProjectForm) this.currentProjectForm = new ProjectForm();
             this.update();
         }
+
+        this.projectEditButtons.forEach(projectEditButton => {
+            projectEditButton.onclick = () => {
+                if (!this.currentProjectEditForm) this.currentProjectEditForm = new ProjectEditForm();
+                this.update();
+            }
+        })
 
         this.projectRemoveButtons.forEach(projectRemoveButton => {
             const projectId = projectRemoveButton.parentElement.dataset.id;

@@ -4,3 +4,11 @@
     flex-flow: column wrap;
 
 }
+
+.main__sidebar-project-manager-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

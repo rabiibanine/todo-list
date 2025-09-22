@@ -5,14 +5,11 @@ import "./styles/main.css";
 import "./styles/sidebar.css";
 import "./styles/normalize.css";
 import "./styles/content.css";
-import "./styles/task-form.css";
 import "./styles/project-manager.css";
-import "./styles/project-form.css";
 import "./styles/project.css";
 import "./styles/task.css";
-import "./styles/project-manager-header.css";
-import "./styles/task-manager-header.css";
 import "./styles/task-manager.css";
+import "./styles/form.css";
 
 const main = document.querySelector('.main');
 
