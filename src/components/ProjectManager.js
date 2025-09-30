@@ -49,10 +49,18 @@ export class ProjectManager {
         this.projects.push(projectToAdd);
 
     }
-    
-    removeProject(projectId) {
 
-        const i = this.projects.findIndex(project => project.id === projectId);
+    editProject(projectID, newProjectData) {
+
+        const projectToEdit = this.projects.find(project => project.id === projectID);
+        projectToEdit.title = newProjectData.title;
+        projectToEdit.description = newProjectData.description;
+
+    }
+    
+    removeProject(projectID) {
+
+        const i = this.projects.findIndex(project => project.id === projectID);
         if (this.currentProject === this.projects[i]) this.currentProject = null;
         this.projects.splice(i , 1);
 

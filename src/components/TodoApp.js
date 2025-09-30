@@ -44,13 +44,13 @@ export class TodoApp {
 
         // Submitting
 
-        this.submitProjectForm = document.querySelector(".project-form__button-submit");
+        this.submitProjectFormButton = document.querySelector(".project-form__button-submit");
 
-        this.submitProjectEditForm = document.querySelector(".project-edit-form__button-submit");
+        this.submitProjectEditFormButton = document.querySelector(".project-edit-form__button-submit");
 
-        this.submitTaskForm = document.querySelector(".task-form__button-submit");
+        this.submitTaskFormButton = document.querySelector(".task-form__button-submit");
 
-        this.submitTaskEditForm = document.querySelector(".task-edit-form__button-submit");
+        this.submitTaskEditFormButton = document.querySelector(".task-edit-form__button-submit");
 
         // Removing
 
@@ -71,79 +71,93 @@ export class TodoApp {
             this.update();
         };
 
-        if (this.taskAddButton) this.taskAddButton.onclick = () => {
-            if (!this.getForm()) this.taskForm = new TaskForm();
-            this.update();
-        };
+        if (this.taskAddButton)
+            this.taskAddButton.onclick = () => {
+                if (!this.getForm()) this.taskForm = new TaskForm();
+                this.update();
+            };
 
         // Editing
 
         this.projectEditButtons.forEach((projectEditButton) => {
+            const projectID = projectEditButton.parentElement.dataset.id;
             projectEditButton.onclick = () => {
-                if (!this.getForm()) this.projectEditForm = new ProjectEditForm();
+                if (!this.getForm()) this.projectEditForm = new ProjectEditForm(projectID);
                 this.update();
             };
         });
 
         this.taskEditButtons.forEach((taskEditButton) => {
+            const taskID = taskEditButton.parentElement.dataset.id;
             taskEditButton.onclick = () => {
-                if (!this.getForm()) this.taskEditForm = new TaskEditForm();
+                if (!this.getForm()) this.taskEditForm = new TaskEditForm(taskID);
                 this.update();
             };
         });
 
         // Submitting
 
-        if (this.submitProjectForm)
-            this.submitProjectForm.onclick = () => {
+        if (this.submitProjectFormButton)
+            this.submitProjectFormButton.onclick = () => {
                 const projectData = this.projectForm.submitForm();
                 const project = new Project(projectData);
                 this.projectManager.addProject(project);
-                this.projectForm.closeForm();
-                this.projectForm = null;
+                this.closeAnyForm();
                 this.update();
             };
 
-        if (this.submitTaskForm)
-            this.submitTaskForm.onclick = () => {
+        if (this.submitProjectEditFormButton)
+            this.submitProjectEditFormButton.onclick = () => {
+                const projectData = this.projectEditForm.submitForm();
+                const projectID = this.submitProjectEditFormButton.parentElement.dataset.id;
+                this.projectManager.editProject(projectID, projectData);
+                this.closeAnyForm();
+                this.update();
+            };
+
+        if (this.submitTaskFormButton)
+            this.submitTaskFormButton.onclick = () => {
                 const taskData = this.taskForm.submitForm();
                 const task = new Task(taskData);
                 this.projectManager.currentProject.taskManager.addTask(task);
-                this.taskForm.closeForm();
-                this.taskForm = null;
+                this.closeAnyForm();
+                this.update();
+            };
+
+        if (this.submitTaskEditFormButton)
+            this.submitTaskEditFormButton.onclick = () => {
+                const taskData = this.taskEditForm.submitForm();
+                const taskID = this.submitTaskEditFormButton.parentElement.dataset.id;
+                this.projectManager.currentProject.taskManager.editTask(taskID, taskData);
+                this.closeAnyForm();
                 this.update();
             };
 
         // Removing
 
         this.projectRemoveButtons.forEach((projectRemoveButton) => {
-            const projectId = projectRemoveButton.parentElement.dataset.id;
+            const projectID = projectRemoveButton.parentElement.dataset.id;
             projectRemoveButton.onclick = (event) => {
-                this.projectManager.removeProject(projectId);
+                this.projectManager.removeProject(projectID);
                 this.update();
                 event.stopPropagation();
             };
         });
 
         this.taskRemoveButtons.forEach((taskRemoveButton) => {
-            const taskId = taskRemoveButton.parentElement.dataset.id;
+            const taskID = taskRemoveButton.parentElement.dataset.id;
             taskRemoveButton.onclick = () => {
-                this.projectManager.currentProject.taskManager.removeTask(taskId);
+                this.projectManager.currentProject.taskManager.removeTask(taskID);
                 this.update();
             };
         });
 
         // Closing
 
-        if (this.closeForm) this.closeForm.onclick = () => {
-            const currentForm = this.getForm();
-            currentForm.closeForm();
-            this.projectForm = null;
-            this.projectEditForm = null;
-            this.taskForm = null;
-            this.taskEditForm = null;
-        }
-
+        if (this.closeForm)
+            this.closeForm.onclick = () => {
+                this.closeAnyForm();
+            };
         // Setting
 
         this.projectManager.projects.forEach((project) => {
@@ -155,6 +169,14 @@ export class TodoApp {
     }
 
     getForm() {
-        return this.projectForm || this.projectEditForm || this.taskForm || this.taskEditForm || null
+        return this.projectForm || this.projectEditForm || this.taskForm || this.taskEditForm || null;
+    }
+
+    closeAnyForm() {
+        this.getForm().closeForm();
+        this.projectForm = null;
+        this.projectEditForm = null;
+        this.taskForm = null;
+        this.taskEditForm = null;
     }
 }

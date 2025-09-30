@@ -44,6 +44,14 @@ export class TaskManager {
 
     }
 
+    editTask(taskID, newTaskData) {
+
+    const taskToEdit = this.tasks.find(task => task.id === taskID);
+    taskToEdit.title = newTaskData.title;
+    taskToEdit.description = newTaskData.description;
+
+    }
+
     removeTask(taskId) {
 
         const i = this.tasks.findIndex(task => task.id === taskId);

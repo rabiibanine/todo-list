@@ -35,11 +35,4 @@ export class Project {
 
     }
 
-    updateProject(projectData) {
-
-        this.title = projectData.title;
-        this.description = projectData.description;
-
-    }
-
 }
