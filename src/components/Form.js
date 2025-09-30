@@ -1,67 +1,53 @@
-import Exit from "../public/remove.svg";
+import Close from "../public/remove.svg";
 
 export class Form {
-
-    constructor(formClassPrefix){
-
+    constructor(formClassPrefix) {
         this.formClassPrefix = formClassPrefix;
         this.formElement = this.constructElement();
         this.displayForm();
-
     }
 
-    constructElement(){
+    constructElement() {
+        const formElement = document.createElement("div");
+        formElement.classList.add(`${this.formClassPrefix}`, "form");
 
-        const formElement = document.createElement('div');
-        formElement.classList.add(`${this.formClassPrefix}`, 'form');
-
-        const formExit = document.createElement('img');
-        formExit.classList.add(`${this.formClassPrefix}__exit`);
-        formExit.src = Exit;
+        const formExit = document.createElement("img");
+        formExit.classList.add(`${this.formClassPrefix}__close`);
+        formExit.src = Close;
         formElement.appendChild(formExit);
 
-        const formInputElementTitle = document.createElement('input');
+        const formInputElementTitle = document.createElement("input");
         formInputElementTitle.classList.add(`${this.formClassPrefix}__input-title`);
-        formInputElementTitle.placeholder = 'Task title';
+        formInputElementTitle.placeholder = "Task title";
         formElement.appendChild(formInputElementTitle);
 
-        const formInputElementDescription = document.createElement('input');
+        const formInputElementDescription = document.createElement("input");
         formInputElementDescription.classList.add(`${this.formClassPrefix}__input-description`);
-        formInputElementDescription.placeholder = 'Description';
+        formInputElementDescription.placeholder = "Description";
         formElement.appendChild(formInputElementDescription);
 
-        const formSubmit = document.createElement('button');
+        const formSubmit = document.createElement("button");
         formSubmit.classList.add(`${this.formClassPrefix}__button-submit`);
-        formSubmit.textContent = 'Submit';
+        formSubmit.textContent = "Submit";
         formElement.appendChild(formSubmit);
 
         this.formInputElementTitle = formInputElementTitle;
         this.formInputElementDescription = formInputElementDescription;
         return formElement;
-
     }
 
-    displayForm(){
-
+    displayForm() {
         document.body.appendChild(this.formElement);
-
     }
 
-    closeForm(){
-
+    closeForm() {
         document.body.removeChild(this.formElement);
-
     }
 
-    submitForm(){
-
+    submitForm() {
         return {
             title: this.formInputElementTitle.value,
             description: this.formInputElementDescription.value,
-        }
-
+        };
     }
-
-
-
 }
