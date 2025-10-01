@@ -110,7 +110,10 @@ export class TodoApp {
             this.submitProjectEditFormButton.onclick = () => {
                 const projectData = this.projectEditForm.submitForm();
                 const projectID = this.submitProjectEditFormButton.parentElement.dataset.id;
+                const project = this.projectManager.projects.find((project) => project.id === projectID);
                 this.projectManager.editProject(projectID, projectData);
+                if (this.projectManager.currentProject === project)
+                    this.projectManager.currentProject.taskManager.updateTitle(projectData.title);
                 this.closeAnyForm();
                 this.update();
             };

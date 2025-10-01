@@ -1,62 +1,54 @@
 import Add from "../public/add.svg";
 
 export class TaskManager {
-
-    constructor(parentProjectTitle) {
-
-        this.title = parentProjectTitle;
+    constructor(title) {
+        this.title = title;
         this.tasks = new Array();
-        
     }
 
     constructElement() {
+        const taskManager = document.createElement("div");
+        taskManager.classList.add("main__content-task-manager");
 
-        const taskManager = document.createElement('div');
-        taskManager.classList.add('main__content-task-manager');
-
-        const taskManagerHeader = document.createElement('div');
-        taskManagerHeader.classList.add('main__content-task-manager-header');
-        const taskManagerTitle = document.createElement('h1');
-        taskManagerTitle.classList.add('main__content-task-manager-title');
+        const taskManagerHeader = document.createElement("div");
+        taskManagerHeader.classList.add("main__content-task-manager-header");
+        const taskManagerTitle = document.createElement("h1");
+        taskManagerTitle.classList.add("main__content-task-manager-title");
         taskManagerTitle.textContent = this.title;
-        const taskAddIcon = document.createElement('img');
-        taskAddIcon.classList.add('main__content-task-add');
+        const taskAddIcon = document.createElement("img");
+        taskAddIcon.classList.add("main__content-task-add");
         taskAddIcon.src = Add;
         taskManagerHeader.appendChild(taskManagerTitle);
         taskManagerHeader.appendChild(taskAddIcon);
 
-        const taskManagerTasks = document.createElement('div');
-        taskManagerTasks.classList.add('main__content-task-list');
-        this.tasks.forEach(task => {
+        const taskManagerTasks = document.createElement("div");
+        taskManagerTasks.classList.add("main__content-task-list");
+        this.tasks.forEach((task) => {
             const taskElement = task.constructElement();
             taskManagerTasks.appendChild(taskElement);
-        })
+        });
 
         taskManager.appendChild(taskManagerHeader);
         taskManager.appendChild(taskManagerTasks);
         return taskManager;
+    }
 
+    updateTitle(newTitle) {
+        this.title = newTitle;
     }
 
     addTask(taskToAdd) {
-
         this.tasks.push(taskToAdd);
-
     }
 
     editTask(taskID, newTaskData) {
-
-    const taskToEdit = this.tasks.find(task => task.id === taskID);
-    taskToEdit.title = newTaskData.title;
-    taskToEdit.description = newTaskData.description;
-
+        const taskToEdit = this.tasks.find((task) => task.id === taskID);
+        taskToEdit.title = newTaskData.title;
+        taskToEdit.description = newTaskData.description;
     }
 
     removeTask(taskId) {
-
-        const i = this.tasks.findIndex(task => task.id === taskId);
-        this.tasks.splice(i , 1);
-
+        const i = this.tasks.findIndex((task) => task.id === taskId);
+        this.tasks.splice(i, 1);
     }
-
 }
