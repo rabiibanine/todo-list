@@ -7,8 +7,21 @@
 
 .main__content-task-manager-header {
 
+    padding: 10px 20px;
+    margin: 20px;
+
+    border: 1px solid hsla(329, 40%, 15%, 0.5);
+    border-radius: 1rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+
+    transition: all ease 0.2s;
+
+}
+
+.main__content-task-manager-header:hover {
+    border: 1px solid hsla(329, 40%, 15%, 1);
 }

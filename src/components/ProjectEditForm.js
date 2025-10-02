@@ -11,4 +11,12 @@ export class ProjectEditForm extends Form {
 
     }
 
+    getFields() {
+
+        return [
+
+        ]
+
+    }
+
 }

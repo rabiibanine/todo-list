@@ -10,4 +10,7 @@ export class TaskForm extends Form{
 
     }
 
+    getFields() {
+    }
+
 }

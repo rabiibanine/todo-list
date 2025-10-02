@@ -1,0 +1,11 @@
+:root {
+
+    --primary-color: #2E1F27;
+    --lighter-primary-color: hsl(328, 19%, 25%);
+    --heavier-primary-color: hsl(328, 19%, 10%);
+    --primary-font: "Alan Sans", Arial;
+
+    font-family: var(--primary-font);
+    font-weight: 200;
+
+}

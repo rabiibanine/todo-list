@@ -9,5 +9,12 @@ body {
 }
 
 img {
-    width: 30px;
+    width: 22px;
+    
+    transition: all ease 0.2s;
+}
+
+img:hover {
+    scale: 1.2;
+    cursor: pointer;
 }

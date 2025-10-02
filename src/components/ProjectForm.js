@@ -10,4 +10,12 @@ export class ProjectForm extends Form{
 
     }
 
+    getFields() {
+
+        return [
+
+        ]
+
+    }
+
 }

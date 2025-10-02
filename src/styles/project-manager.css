@@ -1,11 +1,17 @@
 .main__sidebar-project-manager {
+    background-color: var(--primary-color);
+    padding: 10px;
+    height: 100%;
 
     display: flex;
     flex-flow: column wrap;
+    gap: 10px;
 
 }
 
 .main__sidebar-project-manager-header {
+    border-bottom: 1px solid #ffffff33;
+    padding: 10px;
 
     display: flex;
     justify-content: space-between;

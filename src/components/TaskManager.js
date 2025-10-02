@@ -21,15 +21,15 @@ export class TaskManager {
         taskManagerHeader.appendChild(taskManagerTitle);
         taskManagerHeader.appendChild(taskAddIcon);
 
-        const taskManagerTasks = document.createElement("div");
-        taskManagerTasks.classList.add("main__content-task-list");
+        const taskManagerPendingTasks = document.createElement("div");
+        taskManagerPendingTasks.classList.add("main__content-task-pending-list");
         this.tasks.forEach((task) => {
             const taskElement = task.constructElement();
-            taskManagerTasks.appendChild(taskElement);
+            taskManagerPendingTasks.appendChild(taskElement);
         });
 
         taskManager.appendChild(taskManagerHeader);
-        taskManager.appendChild(taskManagerTasks);
+        taskManager.appendChild(taskManagerPendingTasks);
         return taskManager;
     }
 

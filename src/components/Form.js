@@ -26,6 +26,10 @@ export class Form {
         formInputElementDescription.placeholder = "Description";
         formElement.appendChild(formInputElementDescription);
 
+        const fields = this.getFields();
+        fields.forEach(field => formElement.appendChild(field));
+        
+
         const formSubmit = document.createElement("button");
         formSubmit.classList.add(`${this.formClassPrefix}__button-submit`);
         formSubmit.textContent = "Submit";
