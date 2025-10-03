@@ -61,6 +61,10 @@ export class TodoApp {
         // Closing
 
         this.closeForm = document.querySelector("[class$=-form__close");
+
+        // Expanding
+
+        this.projectExpansionButtons = [...document.querySelectorAll(".main__sidebar-project-header-expand")];
     }
 
     bindEvents() {
@@ -139,7 +143,7 @@ export class TodoApp {
         // Removing
 
         this.projectRemoveButtons.forEach((projectRemoveButton) => {
-            const projectID = projectRemoveButton.parentElement.dataset.id;
+            const projectID = projectRemoveButton.parentElement.parentElement.dataset.id;
             projectRemoveButton.onclick = (event) => {
                 this.projectManager.removeProject(projectID);
                 this.update();
@@ -169,6 +173,18 @@ export class TodoApp {
                 this.update();
             };
         });
+
+        // Expansion
+
+        this.projectExpansionButtons.forEach((projectExpansionButton) => {
+            const projectID = projectExpansionButton.parentElement.parentElement.dataset.id;
+            const project = this.projectManager.projects.find((project) => project.id === projectID);
+            projectExpansionButton.onclick = (event) => {
+                projectExpansionButton.parentElement.parentElement.classList.toggle("expanded");
+                project.toggleExpansion();
+                event.stopPropagation();
+            }
+        })
     }
 
     getForm() {
