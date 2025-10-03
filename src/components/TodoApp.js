@@ -38,9 +38,9 @@ export class TodoApp {
 
         // Editing
 
-        this.projectEditButtons = [...document.querySelectorAll(".main__sidebar-project-edit")];
+        this.projectEditButtons = [...document.querySelectorAll(".main__sidebar-project-header-edit")];
 
-        this.taskEditButtons = [...document.querySelectorAll(".main__sidebar-task-edit")];
+        this.taskEditButtons = [...document.querySelectorAll(".main__content-task-edit")];
 
         // Submitting
 
@@ -54,7 +54,7 @@ export class TodoApp {
 
         // Removing
 
-        this.projectRemoveButtons = [...document.querySelectorAll(".main__sidebar-project-remove")];
+        this.projectRemoveButtons = [...document.querySelectorAll(".main__sidebar-project-header-remove")];
 
         this.taskRemoveButtons = [...document.querySelectorAll(".main__content-task-remove")];
 
@@ -84,7 +84,7 @@ export class TodoApp {
         // Editing
 
         this.projectEditButtons.forEach((projectEditButton) => {
-            const projectID = projectEditButton.parentElement.dataset.id;
+            const projectID = projectEditButton.parentElement.parentElement.dataset.id;
             projectEditButton.onclick = () => {
                 if (!this.getForm()) this.projectEditForm = new ProjectEditForm(projectID);
                 this.update();
@@ -165,6 +165,7 @@ export class TodoApp {
             this.closeForm.onclick = () => {
                 this.closeAnyForm();
             };
+
         // Setting
 
         this.projectManager.projects.forEach((project) => {

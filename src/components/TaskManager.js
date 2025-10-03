@@ -23,6 +23,7 @@ export class TaskManager {
 
         const taskManagerPendingTasks = document.createElement("div");
         taskManagerPendingTasks.classList.add("main__content-task-pending-list");
+        taskManagerPendingTasks.classList.add("task-list");
         this.tasks.forEach((task) => {
             const taskElement = task.constructElement();
             taskManagerPendingTasks.appendChild(taskElement);

@@ -18,7 +18,7 @@ export class Form {
 
         const formInputElementTitle = document.createElement("input");
         formInputElementTitle.classList.add(`${this.formClassPrefix}__input-title`);
-        formInputElementTitle.placeholder = "Task title";
+        formInputElementTitle.placeholder = "Title";
         formElement.appendChild(formInputElementTitle);
 
         const formInputElementDescription = document.createElement("input");

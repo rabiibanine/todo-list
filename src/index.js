@@ -2,9 +2,9 @@ import { TodoApp } from "./components/TodoApp";
 import { Task } from "./components/Task";
 
 import "./styles/variables.css";
+import "./styles/normalize.css";
 import "./styles/main.css";
 import "./styles/sidebar.css";
-import "./styles/normalize.css";
 import "./styles/content.css";
 import "./styles/project-manager.css";
 import "./styles/project.css";

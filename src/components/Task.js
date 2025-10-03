@@ -1,5 +1,6 @@
 import Remove from "../public/remove.svg";
 import Edit from "../public/edit.svg";
+import Finish from "../public/finish.svg";
 
 export class Task {
     constructor(taskData) {
@@ -26,6 +27,10 @@ export class Task {
         const taskDueDateElement = document.createElement("p");
         taskDueDateElement.classList.add("main__content-task-due-date");
         taskDueDateElement.textContent = this.dueDate;
+        const taskFinishIcon = document.createElement("img");
+        taskFinishIcon.classList.add("main__content-task-finish");
+        taskFinishIcon.src = Finish;
+        taskFinishIcon.title = "Finish Task Icon";
         const taskEditIcon = document.createElement("img");
         taskEditIcon.classList.add("main__content-task-edit");
         taskEditIcon.src = Edit;
@@ -38,6 +43,7 @@ export class Task {
         taskElement.appendChild(taskDescriptionElement);
         taskElement.appendChild(taskPriorityElement);
         taskElement.appendChild(taskDueDateElement);
+        taskElement.appendChild(taskFinishIcon);
         taskElement.appendChild(taskEditIcon);
         taskElement.appendChild(taskRemoveIcon);
         return taskElement;

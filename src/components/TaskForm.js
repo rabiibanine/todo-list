@@ -11,6 +11,9 @@ export class TaskForm extends Form{
     }
 
     getFields() {
+        return [
+            
+        ]
     }
 
 }

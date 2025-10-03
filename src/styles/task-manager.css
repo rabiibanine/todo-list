@@ -5,13 +5,17 @@
 
 }
 
-.main__content-task-manager-header {
+.main__content-task-manager-header, .task-list {
 
     padding: 10px 20px;
-    margin: 20px;
+    margin: 10px;
 
-    border: 1px solid hsla(329, 40%, 15%, 0.5);
-    border-radius: 1rem;
+    background-color: var(--bg);
+    background: var(--gradient);
+    border: var(--border);
+    box-shadow: var(--shadow-s);
+
+    border-radius: 16px;
 
     display: flex;
     justify-content: space-between;
@@ -22,6 +26,12 @@
 
 }
 
-.main__content-task-manager-header:hover {
-    border: 1px solid hsla(329, 40%, 15%, 1);
+.main__content-task-manager-header:hover, .task-list:hover {
+
+    box-shadow: var(--shadow-m);
+
+}
+
+.task-list {
+
 }
