@@ -1,7 +1,7 @@
 import { TaskManager } from "./TaskManager";
 import Edit from "../public/edit-white.svg";
 import Remove from "../public/remove-white.svg";
-import Expand from "../public/arrow-white.svg";
+import Expand from "../public/expand-white.svg";
 
 export class Project {
     constructor(projectData) {
@@ -13,10 +13,13 @@ export class Project {
     }
 
     constructElement() {
+        
+        // # Root
+
         const projectElement = document.createElement("div");
         projectElement.classList.add("main__sidebar-project");
-        if (this.isExpanded) projectElement.classList.add("expanded");
         projectElement.dataset.id = this.id;
+        if (this.isExpanded) projectElement.classList.add("expanded");
 
         // # Header
 

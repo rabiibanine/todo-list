@@ -44,10 +44,15 @@
     transition: all ease 0.2s;
 }
 
+img.main__sidebar-project-header-expand {
+    width: 15px;
+    margin-right: 6px;
+    rotate: 0deg;
+}
+
 .expanded > .main__sidebar-project-body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 
-    overflow: visible;
     max-height: 100px;
 
 }
@@ -56,11 +61,3 @@
     rotate: 180deg;
 } 
 
-
-img.main__sidebar-project-header-expand {
-    width: 15px;
-    margin-right: 6px;
-    rotate: 0deg;
-
-    transition: all ease 0.2s;
-}

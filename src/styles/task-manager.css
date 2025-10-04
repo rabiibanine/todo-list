@@ -5,20 +5,25 @@
 
 }
 
+img.main__content-task-add {
+
+    margin-left: auto;
+
+}
+
 .main__content-task-manager-header, .task-list {
 
     padding: 10px 20px;
     margin: 10px;
+    margin-bottom: 0px;
 
     background-color: var(--bg);
-    background: var(--gradient);
     border: var(--border);
     box-shadow: var(--shadow-s);
 
     border-radius: 16px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
 
@@ -33,5 +38,37 @@
 }
 
 .task-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
+.main__content-task-manager-pending-header {
+    display: flex;
+}
+
+img.main__content-task-manager-pending-header-expand {
+    width: 15px;
+    margin-right: 6px;
+}
+
+.main__content-task-manager-pending-header-title {
+    font-size: 1.3rem;
+}
+
+.main__content-task-manager-pending-body {
+    overflow: hidden;
+    max-height: 0;
+
+    transition: all ease 0.2s;
+}
+
+.expanded > .main__content-task-manager-pending-body {
+
+    max-height: 100px
+}
+
+.expanded img.main__content-task-manager-pending-header-expand {
+    rotate: 180deg;
 }

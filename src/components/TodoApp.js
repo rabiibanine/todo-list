@@ -65,6 +65,8 @@ export class TodoApp {
         // Expanding
 
         this.projectExpansionButtons = [...document.querySelectorAll(".main__sidebar-project-header-expand")];
+
+        this.taskListExpansionButtons = [... document.querySelectorAll(".main__content-task-manager-pending-header-expand")];
     }
 
     bindEvents() {
@@ -186,6 +188,16 @@ export class TodoApp {
                 event.stopPropagation();
             }
         })
+
+        this.taskListExpansionButtons.forEach((taskListExpansionButton) => {
+            console.log("this ran");
+            taskListExpansionButton.onclick = (event) => {
+                taskListExpansionButton.parentElement.parentElement.classList.toggle("expanded");
+                this.projectManager.currentProject.taskManager.toggleExpansion();
+                event.stopPropagation()
+            }
+        })
+
     }
 
     getForm() {
