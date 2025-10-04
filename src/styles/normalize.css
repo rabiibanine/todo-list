@@ -28,3 +28,8 @@ img:hover {
     cursor: pointer;
 }
 
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
