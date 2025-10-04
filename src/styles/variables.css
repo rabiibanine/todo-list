@@ -14,9 +14,9 @@
     --gradient: linear-gradient(0deg, var(--bg) 80%, var(--bg-light));
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
     /* shadows */
-    --shadow-s: inset 0 1px 2px oklch(1 0 0 / 0.3), 0 1px 2px oklch(0 0 0 / 0.3), 0 2px 4px oklch(0 0 0 / 0.15);
-    --shadow-m: inset 0 1px 2px oklch(1 0 0 / 0.3), 0 2px 4px oklch(0 0 0 / 0.3), 0 4px 8px oklch(0 0 0 / 0.15);
-    --shadow-l: inset 0 1px 2px oklch(1 0 0 / 0.3), 0 4px 6px oklch(0 0 0 / 0.3), 0 6px 10px oklch(0 0 0 / 0.15);
+    --shadow-s: inset 0 1px 2px oklch(1 0 0 / 0.4), 0 1px 2px oklch(0 0 0 / 0.3), 0 2px 4px oklch(0 0 0 / 0.15);
+    --shadow-m: inset 0 2px 4px oklch(1 0 0 / 0.5), 0 2px 4px oklch(0 0 0 / 0.3), 0 4px 8px oklch(0 0 0 / 0.15);
+    --shadow-l: inset 0 2px 4px oklch(1 0 0 / 0.6), 0 4px 6px oklch(0 0 0 / 0.3), 0 6px 10px oklch(0 0 0 / 0.15);
 
     --hp-low: oklch(66.914% 0.06612 161.31 / 0.3);
     --hp-normal: oklch(79.835% 0.077 76.132 / 0.3);
@@ -27,7 +27,7 @@
     --hp-high-text: oklch(40% 0.10084 39.605 / 0.8);
 
     --primary-color: hsl(205, 100%, 20%);
-    --lighter-primary-color: hsl(205, 100%, 30%);
+    --lighter-primary-color: #005999;
     --heavier-primary-color: hsl(205, 100%, 10%);
     --primary-font: "Alan Sans", Arial;
 }

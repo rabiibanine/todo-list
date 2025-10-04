@@ -1,12 +1,21 @@
 .main__sidebar-project-manager {
-    background-color: var(--primary-color);
     padding: 10px;
-    height: 100%;
-
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
+    height: 100%;
 
+    border-radius: 16px;
+
+    box-shadow: var(--shadow-s);
+    backdrop-filter: blur(20px);
+
+    transition: all ease-in-out 0.2s;
+
+}
+
+.main__sidebar-project-manager:hover {
+    box-shadow: var(--shadow-m);
 }
 
 .main__sidebar-project-manager-header {

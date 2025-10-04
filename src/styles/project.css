@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    backdrop-filter: none;
 
     transition: all 0.2s ease;
 }
@@ -12,12 +13,14 @@
 .main__sidebar-project:hover {
     border-radius: 1rem;
 
-    background-color: var(--lighter-primary-color);
+    box-shadow: var(--shadow-s);
+    background-color: #00599980;
     cursor: pointer;
 }
 
 .main__sidebar-project:active {
-    background-color: var(--heavier-primary-color);
+    backdrop-filter: blur(20px);
+    background-color: oklch(0 0 0 / 0.1);
 }
 
 .main__sidebar-project-header {
