@@ -67,7 +67,7 @@ img.main__content-task-manager-pending-header-expand {
 
 .expanded > .main__content-task-manager-pending-body {
 
-    max-height: fit-content;
+    max-height: 1000px;
 }
 
 .expanded img.main__content-task-manager-pending-header-expand {

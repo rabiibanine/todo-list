@@ -110,6 +110,6 @@
 }
 .expanded>.main__content-task-body {
     
-    max-height: fit-content;
+    max-height: 1000px;
 
 }
