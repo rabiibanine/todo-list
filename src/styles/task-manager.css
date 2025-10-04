@@ -62,7 +62,7 @@ img.main__content-task-manager-pending-header-expand {
     max-height: 0;
     width: 100%;
 
-    transition: all ease 0.2s;
+    transition: all ease-in-out 0.3s;
 }
 
 .expanded > .main__content-task-manager-pending-body {

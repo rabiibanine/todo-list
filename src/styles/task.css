@@ -49,6 +49,7 @@
     flex-basis: 60px;
     text-align: center;
     transition: all ease 0.2s;
+    min-width: 90px;
 }
 
 .main__content-task-header-priority:hover{
@@ -80,8 +81,9 @@
 .main__content-task-header-due-date {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2px;
+    justify-content: flex-end;
+    gap: 4px;
+    min-width: 100px;
 }
 
 .main__content-task-header-due-date-DD {
@@ -94,6 +96,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    min-width: 70px;
 }
 
 .main__content-task-header-due-date-iiii, .main__content-task-header-due-date-LLLL {
@@ -105,9 +109,10 @@
     overflow: hidden;
     max-height: 0;
 
-    transition: all ease 0.2s;
+    transition: all ease-in-out 0.3s;
 
 }
+
 .expanded>.main__content-task-body {
     
     max-height: 1000px;
