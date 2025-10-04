@@ -6,12 +6,13 @@ import Edit from "../public/edit.svg";
 import Remove from "../public/remove.svg";
 
 export class Task {
+
     constructor(taskData) {
+        this.taskData = taskData;
         this.title = taskData.title ? taskData.title : "Unnamed";
         this.description = taskData.description ? taskData.description : "No description";
         this.dueDate = new Date(taskData.dueDate);
         this.priority = taskData.priority;
-        console.log(taskData);
         this.id = crypto.randomUUID();
         this.isExpanded = false;
     }

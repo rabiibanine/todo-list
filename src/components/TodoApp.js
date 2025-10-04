@@ -16,6 +16,7 @@ export class TodoApp {
         this.content.classList.add("main__content");
         this.root.appendChild(this.sidebar);
         this.root.appendChild(this.content);
+        this.loadData();
         this.update();
     }
 
@@ -25,6 +26,7 @@ export class TodoApp {
         this.sidebar.appendChild(this.projectManager.constructElement());
         if (this.projectManager.currentProject)
             this.content.appendChild(this.projectManager.currentProject.taskManager.constructElement());
+        this.saveData();
         this.cacheDOM();
         this.bindEvents();
     }
@@ -238,5 +240,41 @@ export class TodoApp {
         this.projectEditForm = null;
         this.taskForm = null;
         this.taskEditForm = null;
+    }
+
+    saveData() {
+    
+        const data = this.projectManager.projects.map((project) => {
+            return [
+                project.projectData,
+                project.taskManager.tasks.map((task) => {
+                    return [
+                        task.taskData,
+                    ]
+                })
+            ]
+        })
+
+        const JSONdata = JSON.stringify(data);
+        localStorage.setItem("data", JSONdata);
+        console.log(JSONdata);
+
+    }
+
+    loadData(){
+        const JSONdata = localStorage.getItem("data");
+        const data = JSON.parse(JSONdata);
+
+        if (data){
+            data.map((item) => {
+                const project = new Project(item[0]);
+                const tasks = item[1].map((taskData) => {
+                    return new Task(taskData[0]);
+                })
+
+                project.taskManager.tasks = tasks;
+                this.projectManager.projects.push(project);
+            })
+        }
     }
 }

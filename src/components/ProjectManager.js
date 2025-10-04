@@ -4,15 +4,7 @@ import Add from "../public/add-white.svg";
 export class ProjectManager {
 
     constructor() {
-
-        const projectData1 = {
-            title: 'Default',
-            description: 'project1 Description',
-        }
-        const project1 = new Project(projectData1);
-        this.projects = [project1];
-        this.currentProject = this.projects[0];
-
+        this.projects = [];
     }
 
     constructElement() {

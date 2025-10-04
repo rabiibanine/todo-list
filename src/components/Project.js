@@ -5,6 +5,7 @@ import Expand from "../public/expand-white.svg";
 
 export class Project {
     constructor(projectData) {
+        this.projectData = projectData;
         this.title = projectData.title;
         this.description = projectData.description;
         this.taskManager = new TaskManager(this.title);
