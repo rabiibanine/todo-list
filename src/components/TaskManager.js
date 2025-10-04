@@ -1,5 +1,7 @@
+import { isThursdayWithOptions } from "date-fns/fp";
 import Add from "../public/add.svg";
 import Expand from "../public/expand.svg";
+import gsap from "gsap";
 
 export class TaskManager {
     constructor(title) {
@@ -94,13 +96,29 @@ export class TaskManager {
         taskToEdit.description = newTaskData.description;
     }
 
-    removeTask(taskId) {
-        const i = this.tasks.findIndex((task) => task.id === taskId);
+    removeTask(taskID) {
+        const i = this.tasks.findIndex((task) => task.id === taskID);
         this.tasks.splice(i, 1);
+    }
+
+    async finishTask(taskID) {
+        const task = document.querySelector(`div[data-id="${taskID}"]`);
+        await gsap.to(task, {
+            y: -500,
+            opacity: 0,
+            scaleY: 0,
+            ease: "power3.out",
+            backgroundColor: "#70a288ff",
+            onComplete: () => {
+                this.removeTask(taskID);
+            }
+        })
+        return;
     }
 
     toggleExpansion() {
         // At this point I've realized I need a whole new task list class because I wanted multiple lists but I would rather not go through all of that, I'm still learning and I kind of need to be over with this project asap. There will only be one list which is a pending list.
         this.isExpanded = !this.isExpanded;
     }
+
 }

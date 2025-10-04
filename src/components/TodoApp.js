@@ -69,7 +69,10 @@ export class TodoApp {
         this.taskListExpansionButtons = [... document.querySelectorAll(".main__content-task-manager-pending-header-expand")];
 
         this.taskExpansionButtons = [...document.querySelectorAll(".main__content-task-header-expand")];
-        console.log(this.taskExpansionButtons);
+    
+        // Finishing
+
+        this.taskFinishButtons = [...document.querySelectorAll(".main__content-task-finish")];
     }
 
     bindEvents() {
@@ -147,7 +150,7 @@ export class TodoApp {
 
         // Removing
 
-        this.projectRemoveButtons.forEach((projectRemoveButton) => {
+        if (!this.getForm()) this.projectRemoveButtons.forEach((projectRemoveButton) => {
             const projectID = projectRemoveButton.parentElement.parentElement.dataset.id;
             projectRemoveButton.onclick = (event) => {
                 this.projectManager.removeProject(projectID);
@@ -156,7 +159,7 @@ export class TodoApp {
             };
         });
 
-        this.taskRemoveButtons.forEach((taskRemoveButton) => {
+        if (!this.getForm()) this.taskRemoveButtons.forEach((taskRemoveButton) => {
             const taskID = taskRemoveButton.parentElement.dataset.id;
             taskRemoveButton.onclick = () => {
                 this.projectManager.currentProject.taskManager.removeTask(taskID);
@@ -207,6 +210,19 @@ export class TodoApp {
                 taskExpansionButton.parentElement.parentElement.classList.toggle("expanded");
                 task.toggleExpansion();
                 event.stopPropagation();
+            }
+        })
+
+        // Finishing
+
+        this.taskFinishButtons.forEach((taskFinishButton) => {
+            const taskID = taskFinishButton.parentElement.parentElement.dataset.id;
+            taskFinishButton.onclick = async (event) => {
+
+                await this.projectManager.currentProject.taskManager.finishTask(taskID)
+                this.update();
+                event.stopPropagation();
+
             }
         })
 
