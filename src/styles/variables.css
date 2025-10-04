@@ -18,8 +18,16 @@
     --shadow-m: inset 0 1px 2px oklch(1 0 0 / 0.3), 0 2px 4px oklch(0 0 0 / 0.3), 0 4px 8px oklch(0 0 0 / 0.15);
     --shadow-l: inset 0 1px 2px oklch(1 0 0 / 0.3), 0 4px 6px oklch(0 0 0 / 0.3), 0 6px 10px oklch(0 0 0 / 0.15);
 
-    --primary-color: #2e1f27;
-    --lighter-primary-color: hsl(328, 19%, 25%);
-    --heavier-primary-color: hsl(328, 19%, 10%);
+    --hp-low: oklch(66.914% 0.06612 161.31 / 0.3);
+    --hp-normal: oklch(79.835% 0.077 76.132 / 0.3);
+    --hp-high: oklch(70.219% 0.10084 39.605 / 0.3);
+
+    --hp-low-text: oklch(40% 0.06612 161.31 / 0.8);
+    --hp-normal-text: oklch(40% 0.077 76.132 / 0.8);
+    --hp-high-text: oklch(40% 0.10084 39.605 / 0.8);
+
+    --primary-color: hsl(205, 100%, 20%);
+    --lighter-primary-color: hsl(205, 100%, 30%);
+    --heavier-primary-color: hsl(205, 100%, 10%);
     --primary-font: "Alan Sans", Arial;
 }

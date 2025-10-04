@@ -60,13 +60,14 @@ img.main__content-task-manager-pending-header-expand {
 .main__content-task-manager-pending-body {
     overflow: hidden;
     max-height: 0;
+    width: 100%;
 
     transition: all ease 0.2s;
 }
 
 .expanded > .main__content-task-manager-pending-body {
 
-    max-height: 100px
+    max-height: fit-content;
 }
 
 .expanded img.main__content-task-manager-pending-header-expand {

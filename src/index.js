@@ -18,6 +18,9 @@ const todoApp = new TodoApp(main);
 
 const taskData1 = {
     title: "yo",
+    description: "yo description",
+    priority: "Low",
+    dueDate: new Date(),
 };
 
 const task1 = new Task(taskData1);

@@ -53,7 +53,7 @@ img.main__sidebar-project-header-expand {
 .expanded > .main__sidebar-project-body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 
-    max-height: 100px;
+    max-height: fit-content;
 
 }
 

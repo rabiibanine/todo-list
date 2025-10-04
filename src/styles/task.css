@@ -1,10 +1,115 @@
 .main__content-task {
+    padding: 10px;
+    margin: 10px;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    min-width: max-content;
+
+    border-radius: 10px;
 
     background-color: var(--bg-light);
     box-shadow: var(--shadow-s);
+
+    transition: all ease 0.2s;
+}
+
+.main__content-task:hover {
+
+    box-shadow: var(--shadow-m);
+
+}
+
+.main__content-task-header {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.main__content-task-header-expand {
+    width: 15px;
+}
+
+.expanded>div>img.main__content-task-header-expand {
+    rotate: 180deg;
+}
+
+
+
+.main__content-task-header-title {
+    font-size: 1.3rem;
+}
+
+.main__content-task-header-priority {
+    margin-left: auto;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    flex-basis: 60px;
+    text-align: center;
+    transition: all ease 0.2s;
+}
+
+.main__content-task-header-priority:hover{
+
+    font-weight: 400;
+}
+
+.main__content-task-header-priority[data-priority="Low"]{
+    background-color: var(--hp-low);
+    color: var(--hp-low-text);
+}
+
+.main__content-task-header-priority[data-priority="Low"]:hover{
+    background-color: var(--hp-low);
+    color: var(--hp-low-text);
+    font-weight: 400;
+}
+
+.main__content-task-header-priority[data-priority="Normal"]{
+    background-color: var(--hp-normal);
+    color: var(--hp-normal-text);
+}
+
+.main__content-task-header-priority[data-priority="High"]{
+    background-color: var(--hp-high);
+    color: var(--hp-high-text);
+}
+
+.main__content-task-header-due-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.main__content-task-header-due-date-DD {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--lighter-primary-color);
+}
+
+.main__content-task-header-due-date-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main__content-task-header-due-date-iiii, .main__content-task-header-due-date-LLLL {
+    font-size: 0.9rem;
+}
+
+.main__content-task-body {
+
+    overflow: hidden;
+    max-height: 0;
+
+    transition: all ease 0.2s;
+
+}
+.expanded>.main__content-task-body {
+    
+    max-height: fit-content;
 
 }

@@ -81,9 +81,10 @@ export class Form {
     }
 
     submitForm() {
+
         return {
-            title: this.formInputElementTitle.value,
-            description: this.formInputElementDescription.value,
+            title: this.formInputElementTitle.value || "Unnamed",
+            description: this.formInputElementDescription.value || "No description",
         };
     }
 }

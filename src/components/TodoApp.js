@@ -67,6 +67,9 @@ export class TodoApp {
         this.projectExpansionButtons = [...document.querySelectorAll(".main__sidebar-project-header-expand")];
 
         this.taskListExpansionButtons = [... document.querySelectorAll(".main__content-task-manager-pending-header-expand")];
+
+        this.taskExpansionButtons = [...document.querySelectorAll(".main__content-task-header-expand")];
+        console.log(this.taskExpansionButtons);
     }
 
     bindEvents() {
@@ -115,7 +118,7 @@ export class TodoApp {
         if (this.submitProjectEditFormButton)
             this.submitProjectEditFormButton.onclick = () => {
                 const projectData = this.projectEditForm.submitForm();
-                const projectID = this.submitProjectEditFormButton.parentElement.dataset.id;
+                const projectID = this.submitProjectEditFormButton.parentElement.parentElement.dataset.id;
                 const project = this.projectManager.projects.find((project) => project.id === projectID);
                 this.projectManager.editProject(projectID, projectData);
                 if (this.projectManager.currentProject === project)
@@ -190,11 +193,20 @@ export class TodoApp {
         })
 
         this.taskListExpansionButtons.forEach((taskListExpansionButton) => {
-            console.log("this ran");
             taskListExpansionButton.onclick = (event) => {
                 taskListExpansionButton.parentElement.parentElement.classList.toggle("expanded");
                 this.projectManager.currentProject.taskManager.toggleExpansion();
                 event.stopPropagation()
+            }
+        })
+
+        this.taskExpansionButtons.forEach((taskExpansionButton) => {
+            const taskID = taskExpansionButton.parentElement.parentElement.dataset.id;
+            const task = this.projectManager.currentProject.taskManager.tasks.find((task) => task.id === taskID);
+            taskExpansionButton.onclick = (event) => {
+                taskExpansionButton.parentElement.parentElement.classList.toggle("expanded");
+                task.toggleExpansion();
+                event.stopPropagation();
             }
         })
 

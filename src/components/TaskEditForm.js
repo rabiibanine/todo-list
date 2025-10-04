@@ -1,5 +1,6 @@
 import Exit from "../public/remove-white.svg";
 import { Form } from "./Form";
+import { format } from "date-fns";
 
 export class TaskEditForm extends Form {
 
@@ -23,6 +24,7 @@ export class TaskEditForm extends Form {
         priorityField.appendChild(priorityFieldLabel);
 
         const priorityFieldSelect = document.createElement("select");
+        this.priorityFieldSelect = priorityFieldSelect;
 
         const priorityHigh = document.createElement("option");
         priorityHigh.value = "High";
@@ -54,7 +56,11 @@ export class TaskEditForm extends Form {
         const dueDateFieldInput = document.createElement("input");
         dueDateFieldInput.classList.add("due-date-field-input");
         dueDateFieldInput.type = "date";
+        const date = format(new Date(), "yyyy-MM-dd");
+        dueDateFieldInput.value = date;
+        dueDateFieldInput.min = date;
         dueDateField.appendChild(dueDateFieldInput);
+        this.dueDateFieldInput = dueDateFieldInput;
 
 
         return [
@@ -62,6 +68,18 @@ export class TaskEditForm extends Form {
             dueDateField
         ]
 
+    }
+
+    submitForm() {
+
+        const baseData = super.submitForm();
+
+        const extraData = {
+            priority: this.priorityFieldSelect.value,
+            dueDate: this.dueDateFieldInput.value,
+        }
+
+        return Object.assign(baseData, extraData);
     }
 
 }
